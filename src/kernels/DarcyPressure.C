@@ -7,12 +7,17 @@ DarcyPressure::validParams()
 {
     InputParameters params = ADKernelGrad::validParams();
     params.addClassDescription("Compute the diffusion term for Darcy pressure ($p$) equation: ");
+    params.addRequiredParam<Real>("permeablity", "Permeablity of the porous medium");
+    params.addParam<Real>(
+        "viscosity", 
+        7.98e-4,
+        "Viscosity of the fluid");
     return params; 
 }
 DarcyPressure::DarcyPressure(const InputParameters & parameters)
     :ADKernelGrad(parameters),
-    _permeablity(0.8451e-09);
-    _viscosity(7.98e-04);
+    _permeablity(getParam<Real>("permeablity")),
+    _viscosity(getParam<Real>("viscosity"))
 {
 }
 

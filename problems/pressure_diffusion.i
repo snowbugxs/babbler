@@ -15,13 +15,19 @@
   [pressure]
   []
 []
+# [Kernels]
+#     [diffusion]
+#       type = ADDiffusion # Laplacian operator
+#       variable = pressure # Operate on the "pressure" variable from above
+#     []
+# []
 [Kernels]
-    [diffusion]
-      type = ADDiffusion # Laplacian operator
-      variable = pressure # Operate on the "pressure" variable from above
-    []
+  [diffusion]
+    type = DarcyPressure 
+    variable = pressure 
+    permeablity = 0.8451e-9 # (m^2) 
+  []
 []
-
 [BCs]
     [inlet]
       type = ADDirichletBC # Simple u=value BC
