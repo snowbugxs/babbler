@@ -26,6 +26,7 @@
     type = DarcyPressure 
     variable = pressure 
     permeablity = 0.8451e-9 # (m^2) 
+    viscosity = 0.0
   []
 []
 [BCs]
