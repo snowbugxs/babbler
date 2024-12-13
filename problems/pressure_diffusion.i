@@ -21,15 +21,21 @@
 #       variable = pressure # Operate on the "pressure" variable from above
 #     []
 # []
+[Materials]
+  [filter]
+    type = PackedColumn # Provides permeability and viscosity of water through packed 1mm spheres
+  []
+[]
 [Kernels]
   [diffusion]
     type = DarcyPressure 
     variable = pressure 
-    permeablity = 0.8451e-9 # (m^2) 
-    viscosity = 0.0
+    # permeablity = 0.8451e-9 # (m^2) 
+    # viscosity = 0.0
   []
 []
 [BCs]
+  [BCs]
     [inlet]
       type = ADDirichletBC # Simple u=value BC
       variable = pressure # Variable to be set
